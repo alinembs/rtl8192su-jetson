@@ -178,7 +178,7 @@ The compatibility modification removes the dependency on this
 obsolete API so that the driver's rate-control implementation can be
 compiled against the available mac80211 interface.
 
-3. struct rate_control_ops API change
+3. `struct rate_control_ops` API change
 
 The original driver defined:
 ```
@@ -186,7 +186,7 @@ static void *rtl_rate_alloc(struct ieee80211_hw *hw,
                             struct dentry *debugfsdir)
 ```
 However, the Linux 5.15 kernel expects a different function signature
-for the .alloc member of:
+for the `.alloc` member of:
 ```
 struct rate_control_ops
 ```
@@ -407,7 +407,7 @@ Then scan:
 ```bash
 sudo iw dev wlxf8d1115eee8f scan | less
 ```
-Replace wlxf8d1115eee8f with the interface name reported by your
+Replace `wlxf8d1115eee8f` with the interface name reported by your
 system.
 
 If NetworkManager is installed, the interface can also be managed
@@ -423,13 +423,13 @@ Connect using:
 ```bash
 nmcli device wifi connect "SSID" password "PASSWORD"
 ```
-Replace SSID and PASSWORD with the appropriate network
+Replace `SSID` and `PASSWORD` with the appropriate network
 credentials.
 
 ## Automatic Module Loading
 
 The current development procedure loads the modules manually using
-insmod.
+`insmod`.
 
 For a permanent installation, the modules should be installed into
 the kernel module tree and registered with the module dependency
@@ -464,7 +464,7 @@ Check the kernel log:
 ```bash
 dmesg | grep -i firmware
 ```
-### rate_control_send_low compilation error
+### `rate_control_send_low` compilation error
 
 If you see:
 ```bash
@@ -478,7 +478,7 @@ Check the compatibility modifications in:
 ```bash
 rtlwifi/rc.c
 ```
-### rtl_rate_alloc incompatible pointer type
+### `rtl_rate_alloc` incompatible pointer type
 
 If you see:
 ```bash
@@ -489,7 +489,7 @@ check the definition of:
 ```bash
 rtl_rate_alloc()
 ```
-and compare it with the rate_control_ops definition in the kernel:
+and compare it with the `rate_control_ops` definition in the kernel:
 ```bash
 include/net/mac80211.h
 ```
@@ -580,7 +580,7 @@ The original repository documents several limitations, including:
 - RX statistics require additional work.
 - Locking/RCU behavior requires further validation.
 
-See the original project's TODO file for additional information.
+See the original project's `TODO` file for additional information.
 
 ## Changelog
 **2026-08-19 — Linux 5.15 / Jetson Compatibility**
@@ -592,10 +592,10 @@ See the original project's TODO file for additional information.
 - Documentation of the build and installation process.
 **Fixed**
 - Legacy kernel time API compatibility issue.
-- Removed dependency on the obsolete rate_control_send_low()
+- Removed dependency on the obsolete `rate_control_send_low()`
 - mac80211 function.
 - Updated the RTL rate-control allocation function to match the
-- Linux 5.15 struct rate_control_ops API.
+- Linux 5.15 `struct rate_control_ops` API.
 **Tested**
 ```bash
 Platform: NVIDIA Jetson Orin NX
@@ -707,8 +707,8 @@ include:
 - Architecture.
 - Firmware version/file.
 - Build output.
-- dmesg output.
-- iw dev output.
+- `dmesg` output.
+- `iw dev` output.
 - Description of the observed behavior.
 
 When reporting a problem, please avoid posting passwords, Wi-Fi
