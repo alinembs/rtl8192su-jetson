@@ -1,0 +1,9 @@
+/home/pandora/Documents/rtl8192su/rtlwifi/rtl8192s/main.o
+/home/pandora/Documents/rtl8192su/rtlwifi/rtl8192s/dm_common.o
+/home/pandora/Documents/rtl8192su/rtlwifi/rtl8192s/fw_common.o
+/home/pandora/Documents/rtl8192su/rtlwifi/rtl8192s/phy_common.o
+/home/pandora/Documents/rtl8192su/rtlwifi/rtl8192s/rf_common.o
+/home/pandora/Documents/rtl8192su/rtlwifi/rtl8192s/hw_common.o
+/home/pandora/Documents/rtl8192su/rtlwifi/rtl8192s/trx_common.o
+/home/pandora/Documents/rtl8192su/rtlwifi/rtl8192s/table_common.o
+/home/pandora/Documents/rtl8192su/rtlwifi/rtl8192s/led_common.o

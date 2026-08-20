@@ -452,16 +452,30 @@ static void _rtl_init_mac80211(struct ieee80211_hw *hw)
 		SET_IEEE80211_PERM_ADDR(hw, rtlmac1);
 	}
 }
+static void rtl_watchdog_timer_callback_515(struct timer_list *timer)
+{
+        struct rtl_works *rtlworks =
+                from_timer(rtlworks, timer, watchdog_timer);
 
+        rtl_watch_dog_timer_callback((unsigned long)rtlworks->hw);
+}
+
+static void rtl_easy_concurrent_retrytimer_callback_515(struct timer_list *timer)
+{
+        struct rtl_works *rtlworks =
+                from_timer(rtlworks, timer, dualmac_easyconcurrent_retrytimer);
+
+        rtl_easy_concurrent_retrytimer_callback((unsigned long)rtlworks->hw);
+}
 static void _rtl_init_deferred_work(struct ieee80211_hw *hw)
 {
 	struct rtl_priv *rtlpriv = rtl_priv(hw);
-
+        
 	/* <1> timer */
-	setup_timer(&rtlpriv->works.watchdog_timer,
-		    rtl_watch_dog_timer_callback, (unsigned long)hw);
-	setup_timer(&rtlpriv->works.dualmac_easyconcurrent_retrytimer,
-		    rtl_easy_concurrent_retrytimer_callback, (unsigned long)hw);
+        timer_setup(&rtlpriv->works.watchdog_timer,
+                    rtl_watchdog_timer_callback_515, 0);
+        timer_setup(&rtlpriv->works.dualmac_easyconcurrent_retrytimer,
+                    rtl_easy_concurrent_retrytimer_callback_515, 0);
 	/* <2> work queue */
 	rtlpriv->works.hw = hw;
 	rtlpriv->works.rtl_wq = alloc_workqueue("%s", 0, 0, rtlpriv->cfg->name);

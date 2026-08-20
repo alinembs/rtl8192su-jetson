@@ -1,0 +1,9 @@
+/home/pandora/Documents/rtl8192su/rtlwifi/base.o
+/home/pandora/Documents/rtl8192su/rtlwifi/cam.o
+/home/pandora/Documents/rtl8192su/rtlwifi/core.o
+/home/pandora/Documents/rtl8192su/rtlwifi/debug.o
+/home/pandora/Documents/rtl8192su/rtlwifi/efuse.o
+/home/pandora/Documents/rtl8192su/rtlwifi/ps.o
+/home/pandora/Documents/rtl8192su/rtlwifi/rc.o
+/home/pandora/Documents/rtl8192su/rtlwifi/regd.o
+/home/pandora/Documents/rtl8192su/rtlwifi/stats.o
